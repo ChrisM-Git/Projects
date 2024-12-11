@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Analyzer</title>
+     <link rel="stylesheet" href="./styles.css" />
+    <script>
+        defer src="./pyscript.js"
+    </script>
+
+</head>
+
+<img src="images/ailogo.jpeg" height="100" width="126"/>
+<div class="toppar" >
+<p class="header"> Our online AI tool helps match dog breeds to music genre
+    for your next company venue!
+</p>
+</div>
+<body>
+<div class="box">
+    <p class="drag"> Drag a dog image into the box!</p>
+</div>
+
+
+
+
+<script>
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+    }
+</script>
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<div class="slidercontainer">
+    <p class="slidedesc">Use the slider to adjust training on images, then click on the button </p>
+  <input type="range" min="10" max="60" value="20" class="slider" id="AIRange">
+    <p class="trainpercentage"> Training Data %: <span id="span"></span></p>
+
+</div>
+
+<script>
+    var slider = document.getElementById("AIRange");
+    var output = document.getElementById("span");
+    output.innerHTML = slider.value; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider.oninput = function() {
+        output.innerHTML = this.value;
+    }
+  </script>
+<dev class="trainbutton">
+<button type="button">TRAIN MODEL</button>
+</dev>
+
+
+</body>
+</html>

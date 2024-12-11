@@ -1,0 +1,168 @@
+/* add a background color */
+body {
+    background-color: black;
+}
+h3 {
+    float: right;
+    color: deepskyblue;
+    font-family: "BM Dohyeon";
+}
+
+    /* Add a black background color to the top navigation */
+    .topnav {
+       position: relative;
+        background-color: black;
+        overflow: hidden;
+    }
+
+    /* Style the links inside the navigation bar */
+    .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    }
+
+    /* Change the color of links on hover */
+
+     .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    /* Add a color to the active/current link */
+    .topnav a.active {
+        background-color: #04AA6D;
+        color: white;
+
+    }
+    .topnav-centered a {
+        float: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+      .luna  {
+        float: right;
+    }
+        .noble  {
+        float: left;
+    }
+        .newreleases  {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+}
+
+/* AI Page */
+/* add a background color */
+body {
+    background-color: black;
+}
+ .toppar {
+     color: white;
+     float: left;
+     position: absolute;
+     left: 14px;
+ }
+    .box {
+        posiiton: relative;
+        margin-top: 40px;
+        width: 350px;
+        height: 120px;
+        padding: 10px;
+        border: 1px solid white;
+    }
+
+
+ .slidercontainer {
+     position: static;
+     width: 300px;
+     height: 150px;
+     padding: 10px;
+     border: 7px solid cornflowerblue;
+     margin-top: 80px;
+}
+
+.header {
+    float: left;
+    color: cornflowerblue;
+    font-family: Helvetica;
+}
+ h3 {
+     color: white;
+     margin: left;
+     font-family: Helvetica;
+ }
+ .drag {
+     float: left;
+     color: #dddddd;
+     font-family: Helvetica;
+
+ }
+
+ .files {
+     color: #dddddd;
+     float: right;
+     margin: 300px;
+     margin-top: 1px;
+ }
+ .slidedesc{
+     float: left;
+     color: #bfbdc8;
+     font-family: Helvetica;
+ }
+ .trainpercentage {
+     float: left;
+     color: #ffe97d;
+     font-family: Helvetica;
+ }
+
+ .trainbutton {
+     float: left;
+     margin-top: 50px;
+
+}
+
+ .span {
+     color: white;
+ }
+ /* The slider itself */
+.slider {
+-webkit-appearance: none;
+  width: 80%;
+  height: 15px;
+  border-radius: 5px;
+  background: cornflowerblue;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+}
+.span {
+    color: white;
+}
+
+
