@@ -7,7 +7,7 @@
 $filename = $_FILES['file']['name'];
 $servername = "10.104.247.162";
 $username = "root";
-$password = "whitetree";
+$password = "********";
 $dbname = "whitetree";
 
 $conn = new mysqli($servername, $username, $password,$dbname);
