@@ -1,0 +1,537 @@
+.logotext {
+    font-family: Helvetica;
+    font-size: 34px
+
+}
+.labstart {
+    font-family: Helvetica;
+    font-size: 28px
+}
+P {
+    font-family: Helvetica;
+    font-size: 18px;
+ }
+
+.agendabox {
+    display: flex;
+    align-items:center;
+}
+.agenda {
+    font-family: Helvetica;
+    font-size: 18px;
+    margin: 20px;
+}
+
+.startbutton {
+    float: left;
+    border: none;
+    color: #3f90e1;
+    padding: 15px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 6px 2px;
+    cursor: pointer;
+}
+.startbutton:hover {
+  background-color: #04AA6D;
+  color: white;
+}
+.box {
+    display: flex;
+    align-items:center;
+}
+.Lunapic\"{
+    opacity: 0;
+    filter: alpha(opacity=40);
+    float: left;
+}
+
+.lunadesc {
+    opacity: 0;
+    filter: alpha(opacity=40);
+    display: inline;
+}
+
+.delinkstyle {
+    opacity: 0;
+    filter: alpha(opacity=40);
+    display: inline;
+    border: 3px solid cornflowerblue;
+    padding: 10px;
+}
+/* Data Engineering style section */
+
+.DE-logotext {
+    font-family: Helvetica;
+    font-size: 24px
+}
+.DEbox {
+    display: flex;
+    align-items:center;
+}
+.DELunapic\" {
+    float: left;
+}
+.DE-lunadesc {
+    font-family: Helvetica;
+    font-size: 18px;
+    margin-left: 20px;
+}
+.DE-agenda {
+    font-family: Helvetica;
+    font-size: 18px;
+    display: block;
+    margin-left: 80px;
+}
+.DE-diagram1 {
+    display: block;
+}
+.DEmaxbox {
+    display: flex;
+    align-items:center;
+}
+.DE-maxdesc {
+    font-family: Helvetica;
+    font-size: 18px;
+    margin-left: 20px;
+}
+.DEmaxmarket {
+    margin-left: 20px;
+    display: inline-block;
+    padding: 30px;
+}
+.DEmarketdatablk {
+    float: left;
+}
+.DEmarketNPS {
+    display: block;
+}
+.DEmaxbox2 {
+    display: flex;
+    align-items:center;
+}
+.DE-maxdesc2 {
+    font-family: Helvetica;
+    font-size: 18px;
+    margin-left: 20px;
+}
+.kitlaptop {
+    float: right;
+}
+.DEmaxbox3 {
+    display: inline-flex;
+    align-items: center;
+}
+
+.DE-maxfinal {
+    font-family: Helvetica;
+    font-size: 18px;
+}
+
+.labenvstyle {
+    display: inline;
+    border: 3px solid cornflowerblue;
+    padding: 10px;
+}
+
+/* Event page style sheet */
+
+.eventbox {
+    display: flex;
+    align-items:center;
+}
+.eventmaxpic\" {
+    float: left;
+}
+.DE-eventdesc {
+    font-family: Helvetica;
+    font-size: 18px;
+    margin-left: 20px;
+}
+.webform {
+    margin-left: auto;
+}
+.Venue {
+    position: absolute;
+    margin-left: auto;
+}
+.SizeVenue {
+    position: relative;
+    margin-left: auto;
+}
+
+#dropzone{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    background: linear-gradient(#3f90e1);
+    align-items: center;
+    justify-content: center;
+}
+#drop-area {
+    width: 500px;
+    height: 300px;
+    padding: 10px;
+    background: darkslateblue;
+    text-align: center;
+    border-radius: 20px;
+}
+.imagetitle {
+    color: #f2f2f2;
+}
+#img-view {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    border: 2px dashed yellow;
+    background-position: center;
+    background-size: cover;
+}
+#img-view img {
+    margin-top: 25px;
+    width 100px;
+}
+#img-view span {
+    display: block;
+    font-family: Helvetica;
+    font-size: 12px;
+    margin-top: 15px;
+    color: white;
+}
+
+/* lab environment style sheet */
+.l-env-logotext2 {
+    font-family: Helvetica;
+    font-size: 15px;
+    line-height: 1px;
+}
+
+.envbrk1 {
+    margin: 150px
+}
+
+.k8s-1 {
+    font-family: Helvetica;
+    font-size: 18px;
+}
+.dslink {
+    padding: 15px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    display: inline;
+    border: 3px solid cornflowerblue;
+    padding: 10px;
+}
+.tblstyle {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    }
+
+
+    .tblstyle table {
+        border-collapse: collapse;
+        margin: 0px auto;
+
+    }
+            .tblstyle th {
+                background-color: grey;
+                Color:white;
+            }
+            .tblstyle th, td {
+                width:30px;
+                text-align:center;
+                border:1px solid black;
+                padding:5px;
+                font-family: Helvetica;
+                font-size: 18px;
+            }
+
+            .tblstyle {
+                border-right:hidden;
+            }
+            .tblstyle {
+                border-collapse:separate;
+                border-spacing:0 10px;
+            }
+            .tblstyle h1 {
+                color:deepskyblue;
+            }
+
+.georgedesc {
+    font-family: Helvetica;
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+.jupbutton {
+    float: left;
+    border: none;
+    color: #3f90e1;
+    padding: 15px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 6px 2px;
+    cursor: pointer;
+}
+.startbutton:hover {
+    background-color: #04AA6D;
+    color: white;
+}
+.wrongdataanswer {
+    font-family: Helvetica;
+    font-size: 18px;
+    color: red;
+
+}
+.wrongarrayanswer {
+    font-family: Helvetica;
+    font-size: 18px;
+    color: red;
+}
+
+
+.validation {
+    width: 60%;
+    left: 10px;
+    float: left;
+    text-align: left;
+}
+
+.valuecount {
+    left: 10px;
+    width: 20%;
+    text-align: left;
+}
+
+.valuedesc {
+    width: 60%;
+    left: 10px;
+    float: left;
+    text-align: left;
+}
+.filename {
+    left: 10px;
+    width: 80%;
+    text-align: left;
+}
+.arraydiv {
+    left: 10px;
+    width: 80%;
+    text-align: left;
+}
+.arraydesc {
+    width: 60%;
+    text-align: left;
+}
+.arrayoutput {
+    left: 10px;
+    width: 80%;
+    text-align: left;
+    font-size: medium;
+}
+.arrayresult {
+    width: 60%;
+    text-align: left;
+
+}
+.fileresult {
+    width: 55%;
+    font-size: small;
+    text-align: left;
+}
+
+.vardiv {
+    left: 10px;
+    width: 80%;
+    text-align: left;
+}
+
+.varoutput {
+    left: 10px;
+    width: 60%;
+    text-align: left;
+}
+
+.wrongvaroutput {
+    font-family: Helvetica;
+    font-size: 18px;
+    color: red;
+}
+.vardesc {
+    left: 10px;
+    width: 70%;
+    text-align: left;
+}
+.len {
+    width: 60%;
+    text-align: left;
+
+}
+.lendiv {
+    left: 10px;
+    width: 80%;
+    text-align: left;
+}
+.lenvars {
+    font-family: Helvetica;
+    font-size: 18px;
+    color: cornflowerblue;
+}
+.wronglenvars {
+    font-family: Helvetica;
+    font-size: 18px;
+    color: red;
+}
+
+.wrongguess {
+    font-family: Helvetica;
+    font-size: 18px;
+    color: red;
+}
+.guess {
+    font-family: Helvetica;
+    font-size: 18px;
+    color: purple;
+}
+
+.dc3 {
+    float: left;
+    border: 3px solid cornflowerblue;
+    color: #3f90e1;
+    padding: 15px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 6px 2px;
+    cursor: pointer;
+}
+.dc3:hover {
+    background-color: #04AA6D;
+    color: white;
+}
+
+.mobilenetimg {
+    display: block;
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.quiz {
+
+    font-family: Helvetica;
+    font-size: 18px;
+    padding: 10px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+.q1title {
+    font-family: Helvetica;
+    font-size: 18px;
+    padding: 10px;
+    white-space: nowrap;
+}
+.q2title {
+    font-family: Helvetica;
+    font-size: 18px;
+    padding: 10px;
+    position: relative;
+}
+.q3title {
+    font-family: Helvetica;
+    font-size: 18px;
+    padding: 10px;
+}
+.question1 {
+    font-family: Helvetica;
+    font-size: 14px;
+    float: inherit;
+}
+.question2 {
+    font-family: Helvetica;
+    font-size: 14px;
+    float: inherit;
+}
+
+.question3 {
+    font-family: Helvetica;
+    font-size: 14px;
+    float: inherit;
+}
+
+.quizbutton {
+    text-align: center;
+    border: 3px solid cornflowerblue;
+    color: #3f90e1;
+    padding: 5px 8px;
+    font-size: 16px;
+    width: 80px;
+    margin-left: 720px;
+
+}
+.quizbutton:hover {
+    background-color: #04AA6D;
+    color: white;
+}
+
+.quizanswer {
+    text-align: center;
+}
+.quizwronganswer {
+    font-family: Helvetica;
+    font-size: 18px;
+    color: red;
+    text-align: center;
+}
+.code1 {
+    float: left;
+}
+.code2 {
+    float: right;
+}
+.codedesc {
+    float: left;
+    display: block;
+    text-align: left;
+    color: darkblue;
+
+}
+.video {
+    text-align: center;
+
+}
+.trainbutton {
+    border: 3px solid cornflowerblue;
+    color: #3f90e1;
+    padding: 5px 8px;
+    font-size: 16px;
+    position: relative;
+    text-align: center;
+}
+.trainbutton:hover {
+    background-color: #04AA6D;
+    color: white;
+}
+.video {
+    display: inline-block;
+}
+.vid {
+    display: inline-block;
+    float: left;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left:  42px;
+    justify-items: center;
+
+}
