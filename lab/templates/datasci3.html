@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Science Modelling</title>
+    <link rel="stylesheet" href="../static/styles/labstyle.css">
+    <img src="../static/whitetree%20logo.png" height="80" width="82"/>
+    <H1 class="DE-logotext">White Tree</H1>
+    <p class="l-env-logotext2"> Sound Sanctuary</p>
+    <hr>
+    <h2 class="labstart">Data Science Modelling</h2>
+    <!---pyodide-->
+
+
+</head>
+<body>
+
+<h2>Neural Network Modelling and Training</h2>
+<div class="DEmaxbox">
+    <img class="max" src="../static/george.jpg" height="82" width="86"/>
+    <p class="DE-georgedesc"> Now we get to the fun part, creating a model and running it on our data! For this exercise, I have built a model for you to use referencing a model <br>
+        on Tensorflow Hub called Mobilenetv2. You can read more about this model <a target="_blank" rel="noopener noreferrer" href="https://paperswithcode.com/method/mobilenetv2">here</a>
+         This is referred to as transfer learning in AI, because I am referencing <br> an existing model using it in my code to train data. There are many sites that provide models,
+         ModelZoo, Huggingface, and many others.</p>
+</div>
+
+<div class="DEmaxbox">
+    <p> Before diving into model training, an overview of neurel networks would be helpful to understand  what our model is doing during the process. Neurel networks are <br> layers of compute a model runs through for training.
+         Each layer that runs on the data and outputs a accuracy score. The more layers a model executes the <br>  more accurate it will be by mapping numbers in an array.
+        <br><br>
+
+        Below is an image that shows the layers in our model mobilenetv2. Notice the first layer pattern, which consists of
+        the number 224, the height, width of our images, <br> times the color channel, 3, representing RGB or Red, Green and Blue.<br>
+    </p>
+
+</div><br>
+
+<img src="../static/mobilenetv2arch.jpg" class=mobilenetimg height="346" width="690">
+
+
+<p> Each row (or layer) is a transformation of the image, making up the neurel network of our model, where t: expansion factor, c: number of output channels, n: repeating number, s: stride.<br>
+    Notice each layer the color variable (3) gets larger, while the image size gets smaller. mobilenet v2 is finding patterns in the image at each layer by assigning colors to numbers, <br> to the total of 1280 numbers per pixel. This is
+    how our model will be able to predict a future image. It will compare the numbers its assigned to colors, and make a determination of dog breed</p>
+
+<p> Before we build a model, there are a few things we need to define in order for the model to work. The first is our input of dog images. Second is the output dog breed for prediction, and third is the model. Given <br>
+    what you have done in the lab so far, and what you know of the Mobilenet v2 architecture, can you determine the 3 inputs our model needs? </p>
+
+<h3 class="quiz"> Three Components needed for the Mobilenet V2 Model</h3>
+
+<form action="Modelling" method="POST">
+
+
+
+<table quiz class="quiz" border="0">
+    <tr>
+        <td>
+            <p class="q1title"> Model Input Format:</p>
+            <select name="q1" id="q1" class="question1">
+                <option>Select an option:</option>
+                <option value="q1w1">The Model doesnt need any inputs</option>
+                <option value="q1w2">The model needs image input from the webform</option>
+                <option value="q1correct">The model needs our image in the form of tensors</option>
+                <option value="q1w3">The model needs image input in the form of filenames</option>
+                <option value="q1w4">The model needs image input from our X variable we defined</option>
+            </select>
+            </td>
+        <td>
+
+            <p class="q2title"> Model Output:</p>
+            <select name="q2" id="q2" class="question2">
+                <option>Select an option:</option>
+                <option value="q2w1">The model needs our breed type based on the ID</option>
+                <option value="q2w2">Output of breeds in the form of images</option>
+                <option value="q2w3">Output of breeds in the form of filenames</option>
+                <option value="q2w4">Output of breeds in the form of tensors</option>
+                <option value="q2correct">Output of unique breeds in the form of tensors</option>
+                <option value="q2w5">Output of unique breeds in the form of integers</option>
+            </select>
+        </td>
+        <td>
+            <p class="q3title"> Type of Model:</p>
+            <select name="q3" id="q3" class="question3">
+                <option>Select an option:</option>
+                <option value="q3w1">We need to download a model to use from Modelzoo</option>
+                <option value="q3w2">We dont need a model, transfer learning is used</option>
+                <option value="q3correct">George built us a custom model referencing MobilenetV2</option>
+                <option value="q3w3">The Mobilenet v2 model is referenced in the code for training</option>
+            </select>
+        </td>
+    </tr>
+</table>
+    <button type="submit"  class="quizbutton" name="quizsubmit" value="quiz">Submit</button>
+    <p class="quizanswer"> {{ quiz_answer }} </p>
+    <p class="quizwronganswer"> {{ quizwronganswer }} </p>
+</form>
+<pre>
+
+</pre>
+<p> Lets take a look at our code for building a model. Below you will see a sniplet of python to help
+define the variables we need for our model to train the image data.</p>
+
+<div class="code1img">
+    <h3> Model Inputs and Python code for building the model </h3>
+<img class="code1" src="../static/modelinput.png" height="128" width="682"/>
+<img class="code2" src="../static/modelcode.png" height="448" width="794"/>
+
+<p class="codedesc"> Notice the values in each variable. The image size
+    is listed with a color spectrum of 3,<br>  representing RGB. Output is the
+    length of unique breeds, and Model url is the model <br> we will be using for our data training. Note the variables are all uppercase, <br> which is defining a variable that shouldn't change.</p>
+
+<p class="codedesc"> The code on the right shows a function called <b>create model</b> which takes in our input  <br>  variables,
+    and then uses a tensorflow keras API (tf.keras) to train our model. You <br> can read more about keras <a target="_blank" rel="noopener noreferrer" href="https://keras.io/getting_started/ecosystem/">here</a>
+         Look at the keras <b> dense </b> layer. This layer of the <br> neurel network is common and connects our inputs to  every neuron
+        in the layer and  <br>  provides and output. In our case, a dog breed type to an image.</p>
+
+<p class="codedesc"> Compiling the model is a function to bring our model together and evaluate for <br> accuracy. We then call the model build
+    function to build our model to run our training, <br> with a defined number of Epochs - a iteration of training data in one cycle.   <br> Click on the button below to see a video of our model training. </p>
+
+
+</div>
+<pre>
+
+</pre>
+<div class="video">
+    <div>
+        <button class="trainbutton" onclick="playVid()" type="button">Train Model</button>
+    </div>
+    <div>
+    <video class="vid" id="modelvid" width="1400px" height="800px">
+    <source src="/static/model.mp4" type="video/mp4">
+    </video>
+    </div>
+    <script>
+        let vid = document.getElementById("modelvid");
+
+        function playVid() {
+            vid.play();
+        }
+
+    </script>
+
+</div>
+
+<div>
+    <p> Look closely at the output. Notice the accuracy increases with each epoch in our model! By the fifth cycle, our model is at 93% accuracy, not bad! A common issue with low accuracy <br> in models
+         is over and underfitting. Overfitting occurs when the model is trained too well on the training data, to the point that it memorizes the data rather than learning the underlying <br> patterns. This results in poor generalization to new data</p>
+
+</div>
+
+
+</body>
+</html>

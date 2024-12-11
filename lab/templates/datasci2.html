@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Science</title>
+    <link rel="stylesheet" href="../static/styles/labstyle.css">
+    <img src="../static/whitetree%20logo.png" height="80" width="82"/>
+    <H1 class="DE-logotext">White Tree</H1>
+    <p class="l-env-logotext2"> Sound Sanctuary</p>
+    <hr>
+    <h2 class="labstart">Data Science Validation</h2>
+    <!---pyodide-->
+
+
+</head>
+<body>
+
+<h2>Labelling and Validation</h2>
+<div class="DEmaxbox">
+    <img class="max" src="../static/george.jpg" height="82" width="86"/>
+    <p class="DE-georgedesc"> As you saw in the previous page, labelling is big part of the data science training process.
+        There are three steps to machine learning in AI, <br> Training, Validation, and Testing. Recall the previous steps where
+         the data engineering team extracted data from the mysql database to a csv file. <br> We are going to use Python code with the data from
+        the CSV file to compare datasets.</p><br>
+</div>
+<p> We have two data points from our customers we can validate from the CSV file. Do you remember what they are? </p>
+<p> Input your answer below in the boxes provided:</p>
+
+
+<form action="/"  method="POST">
+    <label for="data1"> datapoint 1:</label>
+    <input type="text" id ="data1" placeholder="" name="data1">
+    <label for="data2"> datapoint 2:</label>
+    <input type="text" id ="data2" placeholder="" name="data2">
+    <button type="submit" name="action" value="data">Submit</button>
+    <p> {{  data_answer }} </p>
+    <p class="wrongdataanswer"> {{  wdata_answer }} </p>
+    <br>
+    <p class="validation"> {{ validation }}<br></p>
+    <pre>
+
+    </pre>
+
+    <div class="valuecount">
+        <p> {{ valuecount }} </p>
+    </div>
+
+    <p class="valuedesc"> {{ valuedesc }} </p>
+
+<p class="arraydesc"> Next step is to define variables for our filenames and labels from the CSV. <br><br> In the boxes below type or paste in: </p>
+
+    <p class="filename"><b>filenames=["/Users/chrimar3/projects/sample-project/dogbreeds/data/train/" + fname + ".jpg" for fname in labeldata["id"]]</b></p>
+
+    <p class="filename"><b>labeldata=labels["breed"].to_numpy()</b> for the code entries!</p>
+
+<div class="arraydiv">
+        <label for="file1"> Enter code for filenames:</label>
+        <input type="text" id ="file1" placeholder='filenames=' name="file1">
+        <label for="array1"> Enter code for labels</label>
+        <input type="text" id ="array1" placeholder="labels=" name="array1">
+        <button type="submit" name="action" value="arraybutton">Submit</button>
+        <p> {{  array_answer }} </p>
+        <p class="wrongarrayanswer"> {{  warray_answer }} </p>
+        <p class="fileresult"> {{  fileresult }} </p>
+        <p class="arrayoutput"> {{  array }} </p>
+</div>
+    <p class="arrayresult">We defined two variables, filenames and labels for specific data in the CSV file. We can now use these two variables to do validation
+                         by comparing the values against each other using code. To do this, lets split our data into two new variables, f and l, so that it is easier to
+                         use in further functions.  Define the f and l variables below, see the placeholder input for hints. </p>
+
+
+    <div class="vardiv">
+        <label for="varx"> Enter the x variable: </label>
+        <input type="text" id ="varf" placeholder="f=filenames" name="varf">
+        <label for="vary"> Enter the y variable:</label>
+        <input type="text" id ="varl" placeholder="l=labels" name="varl">
+
+        <button type="submit" name="action" value="varbutton">Submit</button>
+        <p> {{  var_answer }} </p>
+         <p class="varoutput"> {{  variables }} </p>
+         <p class="wrongvaroutput"> {{  novariables }} </p>
+        <p class="vardesc"> {{  variabledesc }} </p>
+</div>
+
+    <p class="len">Next, lets see if our filenames, and labels are of the same quantity, this validates we have a label listed for each file uploaded via our intake web form.
+         Occasionally, data is missing from the intake form, We may get an image upload without a breed type, so we need a way to validate our customers requests. Lets check our
+        data below to make sure we have equal quantities of filenames to labels. Use the len() command to find the length of your variables. For example, with the variable <b>breed</b>
+        the syntax would be <b>len(breed)</b>. Remember we defined a few variables for our CSV data, which variable should you use to find the length of filenames and labels?
+        Use the input boxes below for your code:</p>
+
+    <div class="lendiv">
+        <label for="lenfile"> Enter the code to show filename length </label>
+        <input type="text" id ="lenfile" placeholder="" name="lenfile">
+        <label for="lenlabel"> Enter the code to show labels length</label>
+        <input type="text" id ="lenlabel" placeholder="" name="lenlabel">
+
+        <button type="submit" name="action" value="lenbutton">Submit</button>
+        <p class="lenvars"> {{ lenvars }} </p>
+        <p class="wronglenvars"> {{ wlenvars }} </p>
+
+        <p> {{ lenresult }} </p>
+    </div>
+
+
+    <p> Before you go to the next section, i have created a trivia question for you if you have time! Recall we have 10222 labels and filenames for our data.
+        <br> Can you guess how many <b> unique dog breeds</b> are listed in our dataset? Input your answer below, or move to the next section! </p>
+
+
+        <label for="triviaq"> Enter the number of unique dog breeds: </label>
+        <input type="text" id ="triviaq" placeholder="Guess a number!" name="triviaq">
+        <button type="submit" name="action" value="triviabutton">Submit</button>
+        <p class="wrongguess"> {{ guesshigh }} </p>
+        <p class="wrongguess"> {{ guesslow }} </p>
+        <p class="guess"> {{ guess }} </p>
+    
+
+</form>
+<br>
+<div class="box">
+    <img class="georgepic" id="george" src="../static/george.jpg" height="82" width="86"/>
+    <p class="georgesum" id="georgetxt"> Good job completing this portion of the lab, i hope you were able to complete all the steps! In summary,
+        we extracted data out of the CSV file <br> into variables f0r validation of our data.  This is an important step in any AI project for a successful
+        outcome. To save time, we compared <br> each label to its associated images for accuracy. In the next section, we will build a neural network model to train / test!. </p><br>
+</div>
+
+<a class="dc3" id="dc3" href="Modelling">Data Science Modelling</a>
+</body>
+
+</html>
+
