@@ -1,7 +1,7 @@
 <?php
 $servername = "10.104.247.162";
 $username = "root";
-$password = "whitetree";
+$password = "*********";
 $dbname = "whitetree";
 
 // Create connection
