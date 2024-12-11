@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab Environment</title>
+    <script src="/node_modules/@xterm/xterm/lib/xterm.js"></script>
+    <link rel="stylesheet" href="labstyle.css">
+    <img src="images/whitetree logo.png" height="80" width="82"/>
+    <H1 class="DE-logotext">White Tree</H1>
+    <p class="l-env-logotext2"> Sound Sanctuary</p>
+    <hr>
+    <h2 class="labstart">Lab Environment</h2>
+</head>
+<body>
+
+
+<div class="DEmaxbox">
+<img class="max" src="images/max.jpeg" height="82" width="80"/>
+    <p class="DE-maxdesc">
+        Ok, lets take a look at our Lab environment, we use Kubernetes for our 3 tiered app, which includes a web server, PHP, and SQL.
+        The Webserver is for customers to schedule and upload images to find out which breeds would be best for their
+        next music venue! Our PHP handles scripts on the site, and our DB helps manage our image data collection to prep for
+        AI training. Check out the diagram below to see how its setup, then you will get to take a peak at the environment,</p>
+</div>
+
+<p class="labheader">
+<br>
+    <h3>Lab Environment Diagram</h3>
+    <img src="images/Lab Diagram.png" height="578" width="800"/></p>
+
+<p class="diadesc"> You will be accessing the environment through a terminal window to see how our Kubernetes cluster
+is setup. This is a smaller environment compared to our prod site, but its enough to show how we collect data and do
+training for predictions. Click on the Terminal button below, this will open a new window on your screen. Position the
+terminal window so you can see this webpage along the side to follow next steps, feel free to resize the window.</p>
+
+<form method = "POST" action = "ssh://labuser@33.5.6.100" enctype="multipart/form-data">
+    <input type="submit" name="terminal" value="Open Terminal" />
+</form>
+
+<p> Once the window is open you should be logged into our Kubernetes cluster. The Terminal button is an ssh connection
+to our cluster where our apps are in containers. The prompt in your terminal window should look like the image below:</p>
+<img src="images/terminalpic.png" height="24" width="250"/></body>
+
+<h2>Exploring Kubernetes</h2>
+
+<p> Now that your logged into the lab cluster, lets do some exploring. If you do not have experience with Kubernetes,
+    dont worry! <br> I will help explain each step! In this section of the lab, lets look at namespaces, pods, and services</p>
+<h3> Namespaces </h3>
+
+<p> Namespaces are a way to organize resources in kubernetes,
+    think of multiple rooms in a house, each with a door
+    that can be locked. <br> Each room has items that belong to a person, who has the key.
+    Namespaces are a way to seperate apps, <br> </br>networking, security in Kubernetes  for various users, and roles.</p>
+
+<p> Type or paste the following commands in the terminal:</p>
+<ul class="k8s-1">
+    <li><b>kubectl get pods</li>
+    <li>kubectl get pods -n whitetree</b></li>
+</ul>
+<p> The command <b> kubectl</b> is used to create,view, update and delete resources in Kubernetes. <br> Notice the first
+    output listed no resources found in default namespace. Kubernetes includes <br> one namespace upon install called
+    default, we havent created any items in this namespace, so thats why you do not see anything listed.</p>
+
+
+<p> The second command, provided some output, we are running a 3 tiered app of a webserver, php and a DB. <br>
+    Looking at our Diagram above, the frontend web app serves as our customer facing site where customers <br>
+    can upload images. The PHP app runs scripts on our website, that communicates with the DB to keep
+    track of uploads. <br> This helps our AI process related to data labelling.</p>
+
+<p> Lets continue, type or paste the following commands in the terminal:</p>
+<ul class="k8s-1">
+    <li><b>kubectl get deployments -n whitetree</li>
+    <li>kubectl get services -n whitetree</b></li>
+</ul>
+
+<h3> Deployments </h3>
+<p> Deployments are a way to scale apps, notice we have <b> 2/2 </b> listed in the ready column for php and www. <br>
+    This means there are two copies of each app running, which will automatically be load balanced. <br>
+    Should we need to update our website or php scripts, we will have one copy running while the process is occuring.</p>
+
+<h3> Services </h3>
+<p> Services allow connectivity for our apps in pods (or containers) to communicate with ech other,
+    the internet or other <br> resources outside of the OS, VM Kubernetes is running in. Take a look ath the output.</p>
+
+<p> Notice the type column, there is type <b> ClusterIP</b> and <b> NodePort</b> listed. Cluster IP is for
+container to container communication<br> within Kubernetes. The ports listed are the ports a container can connect
+to within the cluster. The NodePort specifies the ports <br> outside apps can connect to the container, in this case
+port 30004 is used on the internet to connect to this web app. <br> 30004 is used for scale, in case we have other
+apps that also connect on port 80 internal to the cluster, or outbound.</p>
+
+
+<h3> Deploy a webserver </h3>
+<p> lets now deploy a website in Kubernetes and see if we can access it!. This site is a sample of our data ingestion<br>
+    form for customers to upload images for inferencing. Its not a full production page just yet, you will get to
+    test inferencing later in the lab!. <br> This deployment script will create a deployment, service for networking,
+     storage for the app to run.</p>
+
+<p> Type or paste the following command:</p>
+<ul class="k8s-1">
+    <li><b>kubectl apply -f wwwconfig.yaml</b></li>
+</ul>
+<p> You will see a few resources get deployed in the <b>lab</b> namespace. <br> This prvides seperation
+    from the default and whitetree resources for testing and development.</p>
+
+<p> Take a look at the deployment, type / paste  this command:</p>
+<ul class="k8s-1">
+    <li><b>kubectl get deployment -n lab</b></li>
+</ul>
+<p> Noiice in the output we have a deployment 1/1 called nginxweb, this is 1 of 1 container deployed<br>
+    in the lab namespace.Type the command kubectl get pod -n lab. You should see 1 pod ready as part
+of the deployment. <br> The name of the pod has random characters attached to assign a unique identifier to
+the deployment in case more pods of the same app are added.</p>
+<p> Take a look at the services, type this command:</p>
+<ul class="k8s-1">
+    <li><b>kubectl get services -n lab</b></li>
+</ul>
+<p> The service deployed is of type NodePort, this allows the app to be accessed outside the cluster! <br>
+    Open a tab in a web browser and see if you can access the webpage by typing: <br>
+     <b>33.5.6.101:30088 </b></b></p>
+ <p> You should see the Whitetree event form for venue scheduling, file uloads, this is one
+     method we use for data ingestion to train our model!</p>
+
+
+<p> Take a look at the webapp config, type / paste  this command:</p>
+<ul class="k8s-1">
+    <li><b>kubectl get configmap -n lab</b></li>
+</ul>
+
+<p> The configmap nginxconfig is listed. So what is a configmap anyway? Configmaps are resources in Kubernetes
+to configure application properties<br>  in a seperate file!. In other words, configmaps store your application non-sensitive
+data that can be used across multiple containers, assuming <br> the config is compatible with the app. You may be
+used to specifying app configuration inside the app on a virtual machine or in a OS <br>  like Windows, but with Kubernetes,
+    we have the ability to decouple application configuration using configmaps to be applied to other similar containers!
+
+<p> lets take a deeper look, type or paste in the command:</p>
+<ul class="k8s-1">
+    <li><b>clear; kubectl describe configmap -n lab</b></li>
+</ul>
+<p> scroll up in the terminal window to find the <b> data </b> property. Below you will see html code
+    for index.html that is used to display the webpage!</p>
+
+
+<div>
+    <p> Lets upload a file to the events page, this time we will view the events page that is running in production.
+        Open your browser and paste or type <b> http://33.5.6.101:30085/event.html </b> </p>
+
+    <p> Once your on the page, go ahead and fill out the form. For example: <br>
+        <b> Company Name: </b> My company <br>
+        <b> Venue Type: </b> Partner Venue <br>
+        <b> Venue Size: </b> 8,000 - 20,000 <br>
+        <br>
+
+        Click on the <b> choose file </b> button and select a file, then click on upload. Choose any image file you like in the
+        directory that opens up in the dialog box</p>
+
+
+    <p> Now lets check to see if your image has been uploaded, lers login to the PHPAdmin dashboard and look
+        at the mysql database! Open a browser window, paste or type: <b> http://33.5.6.101:31435/index.php </b> </p>
+
+    <p> Once logged into the PHPadmin site, you should see a menu listing called whitetree, as shown in the image below:</p>
+
+    <img src="images/phpadmin.jpg" height="328" width="272"/>
+
+    <p> Click on the whitetree menu item, then click on the batabase events, as shown below: </p>
+    <img src="images/events.jpg" height="462" width="272"/>
+
+    <p> Once your in the events database you should see a listing of entries from various customers in the window
+        pane to the right, do you see your entry? <br> </p>
+    <p> Keeping Track of each customers flename entry helps us with the labelling part of AI, now that we have a way
+        to track customer information, <br> our data science team can use this data for model predictionn </p>
+</div>
+
+
+
+<div class="DEmaxbox2">
+    <img class="max" src="images/max.jpeg" height="82" width="80"/>
+    <p class="DE-maxdesc">
+        Great job getting to this stage in the lab, i hope you were able to complete all the steps! <br> If you want to go back and
+        redo the webapp deployment, type / paste the command <b>resetweb</b> in your terminal window. <br> Otherwise lets move on
+        to where our data is stored for AI, and get into Data Science!</p>
+</div>
+<br>
+
+<pre>
+        <a class="dslink" id="delink" href="datasci.html">Data Science</a>
+    </pre>
+</body>
+</html>

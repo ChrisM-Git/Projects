@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>data Engineering</title>
+      <link rel="stylesheet" href="labstyle.css">
+    <img src="images/whitetree logo.png" height="80" width="82"/>
+    <H1 class="DE-logotext">White Tree</H1>
+    <hr>
+    <h2 class="webform">Event Webform</h2>
+</head>
+<body>
+<div class="eventbox">
+    <img class="eventmaxpic" src="images/max.jpeg" alt="maxpic" height="90" width="82"/>
+    <p class="DE-eventdesc">
+        In this section we will go through the webform where you can upload an image to determine which breed is best
+        for your next venue!<br>
+        Keep in mind this is not our full production site, but a sample of how our process works, so we have limited
+        the number of image types, <br>
+        resources needed for this lab to work quickly!:</p>
+</div>
+
+<h4>Customer Submission</h4>
+<form class="webform" action="uploads.php" method="post" enctype="multipart/form-data">
+    <label for="cname">Company Name:</label><br>
+    <input type="text" id="cname" name="cname" value="Cisco Systems"><br>
+    <label class="Venue" for="Venue">Venue Type:</label><br>
+    <select name="venue" id="venue">
+        <option value="Company Private Event">Company Private Event</option>
+        <option value="Conference Entertainment">Conference Entertainment</option>
+        <option value="Partner Event">Partner Venue</option>
+    </select>
+
+    <label class="SizeVenue" for="Size">Venue Size:</label>
+    <select name="size" id="size">
+        <option value=1000>Under 1000</option>
+        <option value=8000>1000 - 8000</option>
+        <option value=20000>8000 - 20000</option>
+        <option value=100000>20000 - 100000</option>
+    </select>
+    <p> Choose a image to upload for doggie DJ detection!</p>
+    <label for="file"> File name:</label>
+    <input type="file" id="filename" name="uploadfile" />
+    <input type="submit" name="submit" value="Upload" />
+</form>
+
+</body>
+
+</html>
+

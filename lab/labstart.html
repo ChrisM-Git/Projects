@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Labstart</title>
+      <link rel="stylesheet" href="labstyle.css">
+    <img src="images/whitetree logo.png" height="340" width="432"/>
+    <H1 class="logotext">White Tree Sound Sanctuary</H1>
+    <hr>
+    <h2 class="labstart">Lab Start Gtart guide</h2>
+</head>
+<body>
+    <p> Welcome to our walkthrough Lab deploying an AI ready architecture with model training  and inferencing!.
+        In this lab we will explore how White Tree uses AI  to detect dog images to help  you determine the best
+        breed for your next music venue from  our community website Doggie DJ!
+
+    </p>
+
+    <p>Here are the topics we will be covering:</p>
+
+    <ul class="agenda">
+         <li>Data Engineering</li>
+         <li>Data prep, Training</li>
+        <li>Model Selcction, Prediction</li>
+        <li>Inferencing</li>
+    </ul>
+
+
+
+<script>
+function fadeIn(el) {
+    el.style.opacity = 0;
+    var tick = function () {
+        el.style.opacity = +el.style.opacity + 0.01;
+        if (+el.style.opacity < 1) {
+            (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16)
+        }
+    };
+    tick();
+}
+
+function lunashow() {
+    const el = document.getElementById("luna");
+    const el2 = document.getElementById("lunatxt");
+    const el3 = document.getElementById("delink");
+
+  console.log(el);
+    fadeIn(el);
+    fadeIn(el2);
+    fadeIn(el3);
+}
+</script>
+
+<pre>
+
+
+<button class="startbutton" onclick="lunashow()">Lets Get Started</button>
+<div class="box">
+<img class=Lunapic" id="luna" src="images/lunaicon.png"  width="90" height="76" alt="Picture of Luna">
+    <p class="lunadesc" id="lunatxt">
+        Hi Im Luna, one of the DJ's here at White Tree Music. With the popularity of our site and talent growing,
+        we have partnered with Cisco Systems to create an AI architecture supporting our workloads for image detection,
+        this will help our customers determine the best breed to hire for their next music venue! I will be your guide as we
+        go through the topic items, starting with Data Engineering. Click on the link below to start!
+    </p>
+</div>
+    <pre>
+        <a class="delinkstyle" id="delink" href="dataengineering.html">Data Engineering</a>
+    </pre>
+</body>
+
+</html>
