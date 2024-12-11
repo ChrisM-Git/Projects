@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab Environment</title>
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <link rel="stylesheet" type="text/css" href="labstyle.css">
+    <img src="images/whitetree logo.png" height="80" width="82"/>
+    <H1 class="DE-logotext">White Tree</H1>
+    <p class="l-env-logotext2"> Sound Sanctuary</p>
+    <hr>
+    <h2 class="labstart">Data Science 2</h2>
+    <!---pyodide-->
+
+<py-env>
+    - pandas
+    - numpy
+    - matplotlib
+</py-env>
+
+</head>
+<body>
+
+<h2>Labelling</h2>
+<div class="DEmaxbox">
+    <img class="max" src="images/max.jpeg" height="82" width="80"/>
+    <p class="DE-maxdesc">
+        Labelling is an important part of getting our data ready for training. Lets take a look at the files that
+        were uploaded to the website through <br> the events form you viewed earlier. In the terminal window type or paste
+        the following command <b>showdir</b></p>
+</div>
+
+<p> You should see lots of files, similar to the image below:</p> <br>
+    <pre>
+
+</pre>
+    <img src="images/trainfiles.png" height="280" width="674"/> <br>
+
+    <p>Notice the filenames? Not very descriptive sre they? This is why labelling is
+    important, we need to provide a description for each file for training so the model <br>
+        knows what to predict. Lets next look at our files, but this time, with labels!</p>
+
+<p> In this lab, we did not require you to type in the dog breed when you uploaded your file. To save time, we
+    have labelled the dog breed to each file uploaded <br>
+    for you, and compiled them into a csv file. You can view the list of dog breeds to files uploaded below. Note, this
+    is not the full list of data collected, but a sample of the <br> contents in our file</p>
+
+
+<py-script>
+    import pandas as pd
+    import matplotlib.pyplot as plt
+    from pyodide.http import open_url
+    url = open_url("labels.csv")
+    df = pd.read_csv(url)
+    pyscript.write('imagedata',df.head(12).to_html(classes="tblstyle"))
+
+</py-script>
+
+<p id="imagedata"></p> <br>
+
+<p> Lets validate our labelled data to see if its accurate! Select one of the image ID names in the
+    box above by highlighting and copying it. <br> Open a new tab in rhe browser and type: 33.5.6.101:30004/train/"image filename.jpg"<br>
+    <br>
+     For example, for image 0021f9ceb3235effd7fcde7f7538ed62 the syntax would be <b> 33.5.6.101:30004/train/0021f9ceb3235effd7fcde7f7538ed62.jpg</b></p>
+<br>
+
+
+<div class="DEmaxbox">
+    <img class="max" src="images/max.jpeg" height="82" width="80"/>
+    <p class="DE-maxdesc">
+        This completes the Data Engineering side of the lab. I'd like to introduce my pal on the Data Science
+        team for Whitetree, hey there George?</p>
+</div>
+<br>
+
+
+<div class="DEmaxbox">
+    <img class="george" src="images/george.jpg" height="82" width="86"/>
+    <p class="georgedesc">
+        Hey Max, yep im here to help with the data you sent over to me for model prep and training! <br>
+        To get started, lets get into a jupyter notebook! This is the tool i use to look at data,
+        and do model predictions! <br> Click on the button below to get into our notebook!</p>
+
+</div>
+
+<p> Once you have the Jupyter Notebook Tab open, come back to the lab guide to proceed with next steps</p>
+
+
+<button type="button" class = "jupbutton" onClick="twolink()">Data Science </button><br>
+
+
+<script>
+
+    function twolink() {
+        // x is first link
+        window.open("./templates/datasci2.html");   // y is second link
+    };
+
+</script>
+
+
+</body>
+
+
+
+</html>
+

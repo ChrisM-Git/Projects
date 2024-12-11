@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>data Engineering</title>
+      <link rel="stylesheet" href="labstyle.css">
+    <img src="images/whitetree logo.png" height="80" width="82"/>
+    <H1 class="DE-logotext">White Tree</H1>
+    <p class="l-env-logotext2"> Sound Sanctuary</p>
+    <hr>
+    <h2 class="labstart">Data Engineering</h2>
+</head>
+<body>
+
+<script>
+function fadeIn(el) {
+    el.style.opacity = 0;
+    var tick = function () {
+        el.style.opacity = +el.style.opacity + 0.01;
+        if (+el.style.opacity < 1) {
+            (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16)
+        }
+    };
+    tick();
+}
+
+</script>
+
+
+<div class="DEbox">
+<img class=DE-Lunapic"  src="images/lunaicon.png"  width="90" height="76" alt="Picture of Luna">
+    <p class="DE-lunadesc">
+        In this section we will cover what is Data Engineering and take a look at the envrionment. At White Tree, our Data Engineers
+        are responsible for three key areas, they are:</p>
+    </div>
+<ul class="DE-agenda">
+
+    <li>Data Mining</li>
+    <li>Big Data</li>
+    <li>Data Pipeline</li>
+</ul>
+<p>
+   <b>Data Mining</b> is extracting some knowledge from the data, this can be from documents, csv files
+    or other structured type formats.<br><br>
+    <b>Big Data</b>,  is allot of data stored in the cloud or on-prem, sometimes also known as a Data Warehouse.
+    In our case, we have lots of pictures of dogs stored within our facility!<br><br>
+    Finally there is <b>Data Pipeline</b>, which is the process of getting the data to a format we can
+    use with different tools, techniques</p>
+
+<p> Here is a diagram of how we store and access our data, my pal Max can provide more detail
+    while i get my set ready for a upcoming show!</p>
+
+<img class="DE-diagram1" src="images/dataeng1.jpeg" height="440" width="980"/>
+<pre>
+
+</pre>
+<div class="DEmaxbox">
+<img class="max" src="images/max.jpeg" height="82" width="80"/>
+    <p class="DE-maxdesc">
+        Thanks Luna! Hey there, I'm Max, one of the lead Data Engineers with White Tree. I'll explain a bit about how
+        we are using data ingestion from our website, internet to populate our datalake so our Data Science team has
+        plenty of images to run training on.  We will get into to that here real quick, but before we do,<br>
+        I would like to discuss our business justification that helped fund our AI Project!</p>
+</div>
+
+
+    <p class="DEmaxmarket"> Lets take a look at our marketing data, Below is a chart from when we first started scheduling events, this helped us track revenue coming
+        into the business and growth potential. We had a light start beginning in Q1 of 2022 when we launched, but quickly
+        became popular in Europe and US with our top Talent DJ's like Luna, DJ Noble and others. By 2023 our staff of
+        performers were fully booked for the entire year, and we were not able to take in any more events, our NPS (Net Promoter Score)
+        quality also started to decline, due to unhqppy customers not able to get their fav DJ for their venue.</p>
+
+    <dev class="DEmarketdatablk">
+        <img class="DEmarketdata" src="images/marketdata.jpeg" alt="marketdata" height="520" width="780"/>
+        <img class="DENPS" src="images/NPS Score.jpeg" alt="NPS Score" height="520" width="520"/>
+    </div>
+<pre>
+    <div class="DEmaxbox2">
+        <p class="DE-maxdesc2">
+            Based on our trend in 2022, 2023 we had to make a decision. Do we hire more customer support staff, or do we invest in technology like
+            AI to deliver better customer experience while reducing operations cost, staff reliability issues,  We began investing in AI end of 2023,
+            we had our web front end up and running with a web intake form to help customers with performer selection, scheduling.
+
+            By Q4 of 2023 Our call volume began to drop rapidly, (see the chart) but our event scheduling increased exponentially, with customer
+            NPS also increasing! With AI, we were able to provide quicker customer response, easier scheduling, and grow our venue footprint!
+            This allowed us to focus on funding marketing campaigns to hire more top talent!<br>
+            We now service 4 continents with local talent onboarding each month!
+        </p>
+        <img class="kitlaptop" src="images/catlaptop.jpeg" mheight="186" width="148"/>
+    </div>
+
+ <div class="DEmaxbox3">
+     <img class="max" src="images/max.jpeg" height="82" width="80"/>
+        <p class="DE-maxfinal">
+         Whew, that was quite an overview! Enough of my barking, lets get you started with the lab! Proceed with the lab envtironment button below,
+         where you will get to explore our front and backend setup for data ingestion, the first step to gathering AI data!</p>
+ </div>
+    <pre>
+<a class="labenvstyle" id="labenvlink" href="labenv.html">Lab Environment</a>
+    </pre>
+</body>
+
+</html>
