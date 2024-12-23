@@ -1,1 +1,2 @@
-
+This is a classic game of pong, the W and S keys are the left paddle movement while the up and down arrow keys are for the right paddle. The main.py file is the program that references
+the other files for functions and output.
