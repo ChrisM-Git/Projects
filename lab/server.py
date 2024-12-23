@@ -1,3 +1,5 @@
+# Christopher Martin 
+# This is the main python file for flask output to an html page for a lab that outputs model classification results baed on image dstection
 
 from flask import Flask, render_template, request
 from train import *
